@@ -1,0 +1,34 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "9e458ca745169a644bca593d5d16704ed85a25f4ec65b7864874d03d2247ac854d3372490425f8c44d8be2d2f837c45b9867b6f4458ce0e485ce3f270cc823d5e3211259a4e1913715fc8b6a739a7b61ab76f153d894a3b7e23e67f716e2dbba56263e6273fd6072fd93d32cb21efecbb96932b208f2efb21da752d4a90a186f5be05efcb8296ffe09cee00aea4079a2183f9f1aeaa86a50f60a13c8d537bd01ee9d04a6ff323636d5515d7ad4eb3c1155a90b200495d525e650f16ea3149bee8b71ca8fa6a8e5098f0ca4282b94a45fe85a1619e526d337bb4c4e199f4dbd15b9fc63a12e3e502bc3607878df7f0d77a05cce04ce5501264397da39dd724e9c",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "mysql": "mysql://root:ariel8*lick@localhost:3306/conference_db"
+}
