@@ -9,11 +9,24 @@ module.exports = function (app) {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
+      validate: {
+        notEmpty: true,
+        isEmail: true,
+        len: [1,255]
+      }
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        len: [1,255]
+      },
+    },
+    updatedBy: {
+      type: DataTypes.INTEGER,
+      allowNull: true
     }
   }, {
     hooks: {

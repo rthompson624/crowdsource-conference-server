@@ -4,14 +4,17 @@ const {
   hashPassword, protect
 } = require('@feathersjs/authentication-local').hooks;
 
+const recordAccounting = require('../../hooks/record-accounting');
+const processUser = require('../../hooks/process-user');
+
 module.exports = {
   before: {
     all: [],
     find: [ authenticate('jwt') ],
     get: [ authenticate('jwt') ],
-    create: [ hashPassword() ],
-    update: [ hashPassword(),  authenticate('jwt') ],
-    patch: [ hashPassword(),  authenticate('jwt') ],
+    create: [hashPassword(), processUser()],
+    update: [hashPassword(), authenticate('jwt'), recordAccounting(), processUser()],
+    patch: [hashPassword(), authenticate('jwt'), recordAccounting(), processUser()],
     remove: [ authenticate('jwt') ]
   },
 

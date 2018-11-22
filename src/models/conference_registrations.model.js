@@ -13,6 +13,10 @@ module.exports = function (app) {
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    updatedBy: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   }, {
     hooks: {

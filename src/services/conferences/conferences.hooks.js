@@ -1,13 +1,16 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
+const recordAccounting = require('../../hooks/record-accounting');
+const processConference = require('../../hooks/process-conference');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
-    create: [],
-    update: [],
-    patch: [],
+    create: [recordAccounting(), processConference()],
+    update: [recordAccounting(), processConference()],
+    patch: [recordAccounting(), processConference()],
     remove: []
   },
 

@@ -1,7 +1,7 @@
 {
   "name": "crowdsource-conference-server",
   "description": "Crowdsource Conference server component.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "homepage": "",
   "main": "src",
   "keywords": [

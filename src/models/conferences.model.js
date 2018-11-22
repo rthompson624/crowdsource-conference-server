@@ -8,6 +8,18 @@ module.exports = function (app) {
   const conferences = sequelizeClient.define('conference', {
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        len: [1,255]
+      }
+    },
+    host_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    updatedBy: {
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
