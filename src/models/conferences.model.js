@@ -11,7 +11,7 @@ module.exports = function (app) {
       allowNull: false,
       validate: {
         notEmpty: true,
-        len: [1,255]
+        len: [1, 255]
       }
     },
     host_id: {
@@ -21,6 +21,49 @@ module.exports = function (app) {
     updatedBy: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 1000]
+      }
+    },
+    startDate: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    endDate: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 255]
+      }
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 255]
+      }
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 255]
+      }
+    },
+    tagLine: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 255]
+      }
     }
   }, {
     hooks: {
